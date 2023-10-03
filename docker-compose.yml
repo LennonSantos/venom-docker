@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  botzap:
+    restart: always
+    build:
+      context: .
+      target: development
+    volumes:
+      - ./src/:/usr/src/app
+    # env_file: ./.env
+    ports:
+      - 80:80
+    stdin_open: true
+    tty: true
+    command: node --watch index.js
